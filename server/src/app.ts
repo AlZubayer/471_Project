@@ -14,6 +14,12 @@ import {
 	editGroup,
 	getAllGroups,
 } from "./controllers/groupController";
+import {
+	addNewPost,
+	fetchPosts,
+	addUpvote,
+	deletePost,
+} from "./controllers/postController";
 import connectDB from "./config/db";
 import cors from "cors";
 
@@ -69,6 +75,11 @@ const startServer = async () => {
 	app.put("/api/group", editGroup);
 	app.delete("/api/group/:id", deleteGroup);
 	app.get("/api/groups", getAllGroups);
+
+	app.post("/api/post", addNewPost);
+	app.post("/api/getPosts", fetchPosts);
+	app.post("/api/post/upvote", addUpvote);
+	app.delete("/api/post", deletePost);
 
 	const PORT = process.env.PORT || 5000;
 	app.listen(PORT, () => console.log(`Server Working`));

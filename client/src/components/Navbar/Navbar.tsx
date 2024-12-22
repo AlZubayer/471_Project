@@ -40,6 +40,12 @@ const Navbar: React.FC = () => {
 									Admin Dashboard
 								</Link>
 							)}
+							<Link
+								to="/new-post"
+								className="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300 transition"
+							>
+								New Post
+							</Link>
 							<button
 								onClick={logout}
 								className="px-4 py-2 bg-gray-200 rounded-md hover:bg-gray-300 transition"

@@ -9,6 +9,7 @@ import Signup from "./components/Signup/Signup";
 import Admin from "./components/Admin/Admin";
 import ManageUsers from "./components/Admin/ManageUsers/ManageUsers";
 import ManageGroups from "./components/Admin/ManageGroups/ManageGroups";
+import NewPost from "./components/NewPost/NewPost";
 
 function App() {
 	return (
@@ -29,6 +30,7 @@ function App() {
 						path="/admin/manage-groups"
 						element={<ManageGroups />}
 					/>
+					<Route path="/new-post" element={<NewPost />} />
 				</Routes>
 			</Router>
 		</AuthProvider>

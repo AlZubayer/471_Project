@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { Edit, Trash2, Check, X, ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
@@ -94,7 +94,7 @@ export default function ManageGroups() {
 		<div className="min-h-screen bg-gray-100 flex flex-col items-center py-10">
 			<div className="w-full max-w-4xl flex items-center justify-between mb-8">
 				<button
-					onClick={() => navigate(-1)} // Navigate back to the previous page
+					onClick={() => navigate(-1)}
 					className="flex items-center space-x-2 px-4 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition"
 				>
 					<ArrowLeft className="w-4 h-4" />
@@ -103,7 +103,6 @@ export default function ManageGroups() {
 				<h1 className="text-3xl font-bold">Manage Groups</h1>
 			</div>
 
-			{/* Add New Group Form */}
 			<div className="w-full max-w-md mb-8">
 				<div className="flex items-center space-x-2">
 					<input
@@ -122,7 +121,6 @@ export default function ManageGroups() {
 				</div>
 			</div>
 
-			{/* Display Groups */}
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-11/12 max-w-4xl">
 				{groups.map((group) => (
 					<div
@@ -132,6 +130,7 @@ export default function ManageGroups() {
 						{editingGroup === group._id ? (
 							<>
 								<input
+									title="group"
 									type="text"
 									value={editingName}
 									onChange={(e) =>
@@ -141,12 +140,14 @@ export default function ManageGroups() {
 								/>
 								<div className="flex space-x-2">
 									<button
+										title="check"
 										onClick={updateGroup}
 										className="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition"
 									>
 										<Check className="w-4 h-4" />
 									</button>
 									<button
+										title="x"
 										onClick={() => {
 											setEditingGroup(null);
 											setEditingName("");
@@ -164,6 +165,7 @@ export default function ManageGroups() {
 								</h2>
 								<div className="flex space-x-2">
 									<button
+										title="edit"
 										onClick={() => {
 											setEditingGroup(group._id);
 											setEditingName(group.name);
@@ -173,6 +175,7 @@ export default function ManageGroups() {
 										<Edit className="w-4 h-4" />
 									</button>
 									<button
+										title="delete"
 										onClick={() => deleteGroup(group._id)}
 										className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition"
 									>
