@@ -20,6 +20,11 @@ import {
 	addUpvote,
 	deletePost,
 } from "./controllers/postController";
+import {
+	addNewComment,
+	deleteComment,
+	getCommentsByPostId,
+} from "./controllers/commentController";
 import connectDB from "./config/db";
 import cors from "cors";
 
@@ -80,6 +85,10 @@ const startServer = async () => {
 	app.post("/api/getPosts", fetchPosts);
 	app.post("/api/post/upvote", addUpvote);
 	app.delete("/api/post", deletePost);
+
+	app.post("/api/comment", addNewComment);
+	app.delete("/api/comment", deleteComment);
+	app.post("/api/getComments", getCommentsByPostId);
 
 	const PORT = process.env.PORT || 5000;
 	app.listen(PORT, () => console.log(`Server Working`));
