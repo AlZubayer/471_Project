@@ -7,6 +7,7 @@ import {
 	deleteUser,
 	toggleBanUser,
 	getAllUsers,
+	searchUsers,
 } from "./controllers/userController";
 import {
 	addNewGroup,
@@ -25,6 +26,14 @@ import {
 	deleteComment,
 	getCommentsByPostId,
 } from "./controllers/commentController";
+import {
+	addNewReport,
+	deletePostByReportId,
+	deleteReportById,
+	getAllReports,
+	searchReports,
+} from "./controllers/ReportController";
+import { getAnalytics } from "./controllers/analyticsController";
 import connectDB from "./config/db";
 import cors from "cors";
 
@@ -75,6 +84,7 @@ const startServer = async () => {
 	app.delete("/api/user/:id", deleteUser);
 	app.put("/api/user/:id", toggleBanUser);
 	app.get("/api/users", getAllUsers);
+	app.post("/api/searchUsers", searchUsers);
 
 	app.post("/api/group", addNewGroup);
 	app.put("/api/group", editGroup);
@@ -89,6 +99,14 @@ const startServer = async () => {
 	app.post("/api/comment", addNewComment);
 	app.delete("/api/comment", deleteComment);
 	app.post("/api/getComments", getCommentsByPostId);
+
+	app.post("/api/report", addNewReport);
+	app.delete("/api/report/:reportId", deleteReportById);
+	app.delete("/api/report/:reportId/post", deletePostByReportId);
+	app.get("/api/reports", getAllReports);
+    app.post("/api/searchReports", searchReports);
+
+	app.get("/api/analytics", getAnalytics);
 
 	const PORT = process.env.PORT || 5000;
 	app.listen(PORT, () => console.log(`Server Working`));

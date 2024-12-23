@@ -1,4 +1,4 @@
-import { Users, FileText, Boxes, ChartBar, UserCog } from "lucide-react";
+import { Users, FileText, Boxes, ChartBar } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Admin() {
@@ -13,7 +13,7 @@ export default function Admin() {
 			title: "Manage Reports",
 			description: "Accept, reject, and manage all reports.",
 			icon: <FileText className="w-10 h-10 text-green-500" />,
-			link: "/admin/manage-posts",
+			link: "/admin/manage-reports",
 		},
 		{
 			title: "Manage Groups",
