@@ -12,7 +12,6 @@ import ManageGroups from "./components/Admin/ManageGroups/ManageGroups";
 import NewPost from "./components/NewPost/NewPost";
 import NewReport from "./components/Report/NewReport";
 import ManageReport from "./components/Admin/ManageReports/ManageReports";
-import ManageAnalytics from "./components/Admin/ManageAnalytics/ManageAnalytics";
 
 function App() {
 	return (
@@ -38,10 +37,6 @@ function App() {
 					<Route
 						path="/admin/manage-reports"
 						element={<ManageReport />}
-					/>
-					<Route
-						path="/admin/analytics"
-						element={<ManageAnalytics />}
 					/>
 				</Routes>
 			</Router>
